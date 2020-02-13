@@ -23,7 +23,7 @@
         owner: ubuntu
 
     - name: enable bash-completetion
-      shell: echo "source <(kubectl completion bash)" >> ~/.bashrc
+      shell: echo "source <(kubectl completion bash)" >> /home/ubuntu/.bashrc
       args:
         chdir: $HOME
 
