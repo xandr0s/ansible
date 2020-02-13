@@ -1,12 +1,6 @@
 - hosts: all
   become: yes
   tasks:
-   - name: install Docker
-     apt:
-       name: docker.io
-       state: present
-       update_cache: true
-
    - name: install APT Transport HTTPS
      apt:
        name: apt-transport-https
@@ -37,9 +31,11 @@
    - name: install kubelet
      apt:
        name:
+       - docker.io
        - kubelet=1.16.*
        - kubernetes-cni=0.7.5-*
        - kubeadm=1.16.*
+       - jq
        state: present
        update_cache: true
 
